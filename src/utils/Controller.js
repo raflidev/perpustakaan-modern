@@ -5,7 +5,7 @@ exports.index = (req,res) => {
 }
 
 exports.user = async (req,res) => {
-    res.json(await User.find())
+    res.json(await User.find().select('-password -__v'))
 }
 
 exports.userPost = (req,res) => {
