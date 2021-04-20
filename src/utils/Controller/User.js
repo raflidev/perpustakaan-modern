@@ -1,6 +1,6 @@
 const User = require("../../db/model/User")
 
-exports.read = async (req,res) => {
+exports.read = (req,res) => {
     User.find().then(user => {
         res.status(200).json(user)
     })
