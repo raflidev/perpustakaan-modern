@@ -4,6 +4,7 @@ const Controller = require('../utils/Controller')
 const User = require('../utils/Controller/User')
 const Book = require('../utils/Controller/Book')
 const Borrow = require('../utils/Controller/Borrow')
+const Login = require('../utils/Controller/Login')
 
 router.get('/', Controller.index)
 router.get('/user', User.read)
@@ -25,6 +26,8 @@ router.post('/borrow', Borrow.create)
 router.put('/borrow/:id', Borrow.update)
 router.delete('/borrow/:id', Borrow.delete)
 router.get('/borrow/:id', Borrow.find)
+
+router.post('/login', Login.tryLogin)
 
 
 
