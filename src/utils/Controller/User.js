@@ -18,7 +18,8 @@ exports.create = (req,res) => {
             full_name: req.body.full_name,
             email: req.body.email,
             valid: req.body.valid,
-            password: req.body.password
+            password: req.body.password,
+            role: req.body.role
         })
         dataUser.save().then(data => {
             res.json(data)

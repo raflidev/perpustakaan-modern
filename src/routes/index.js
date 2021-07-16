@@ -26,6 +26,8 @@ router.post('/borrow', Borrow.create)
 router.put('/borrow/:id', Borrow.update)
 router.delete('/borrow/:id', Borrow.delete)
 router.get('/borrow/:id', Borrow.find)
+router.get('/borrow/user/:id', Borrow.user)
+router.get('/borrow/:book/user/:user', Borrow.check)
 
 router.post('/login', Login.tryLogin)
 

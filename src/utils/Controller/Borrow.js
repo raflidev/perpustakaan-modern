@@ -68,3 +68,20 @@ exports.delete = (req,res) => {
         res.send({ message: "Borrow deleted successfully!" });
     })
 }
+
+exports.user = (req,res) => {
+    Borrow.find({"user_id":req.params.id}).then(borrow => {
+        res.status(200).json(borrow)
+    }).catch(err => {
+        res.status(500).json({message: err.message})
+    })
+}
+
+exports.check = (req,res) => {
+    Borrow.find({user_id: req.params.user, book_id: req.params.book})
+    .then(book => {
+        res.status(200).json(book)
+    }).catch(err => {
+        res.status(500).json({message: err.message})
+    })
+}
