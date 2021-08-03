@@ -13,21 +13,31 @@ exports.read = (req,res) => {
 
 exports.create = (req,res) => {
     try{
-        const dataUser = new User({
-            username: req.body.username,
-            full_name: req.body.full_name,
-            email: req.body.email,
-            valid: req.body.valid,
-            password: req.body.password,
-            role: req.body.role
+        User.find({username:req.body.username}).then(user => {
+          User.find({email:req.body.email}).then((email) => {
+            if(user.length == 0 && email.length == 0){
+              const dataUser = new User({
+                  username: req.body.username,
+                  full_name: req.body.full_name,
+                  email: req.body.email,
+                  valid: req.body.valid,
+                  password: req.body.password,
+                  role: req.body.role
+              })
+              dataUser.save().then(data => {
+                  res.json(data)
+              }).catch((err) => {
+                  res.status(500).send({
+                    message: "Username or email has been registred.",
+                  });
+                });
+            } else {
+              res.status(500).send({
+                message: "Username has been registred.",
+              });
+            }
+          })
         })
-        dataUser.save().then(data => {
-            res.json(data)
-        }).catch((err) => {
-            res.status(500).send({
-              message: err.message || "Some error occurred while creating the User.",
-            });
-          });
     }catch(err){
         console.log({message: err});
     }
