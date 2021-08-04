@@ -80,11 +80,6 @@ exports.find = (req,res) => {
 }
 
 exports.update  = (req,res) => {
-    if (!req.body.email || !req.body.password || !req.body.username || !req.body.full_name) {
-        res.status(400).send({
-          message: "required fields cannot be empty",
-        });
-      }
 
     User.findByIdAndUpdate(req.params.id, req.body, { new: true })
     .then((user) => {
