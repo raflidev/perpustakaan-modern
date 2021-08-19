@@ -89,3 +89,11 @@ exports.update  = (req,res) => {
       });
     });
 }
+
+exports.user = (req,res) => {
+  History.find({"user_id":req.params.id}).then(history => {
+      res.status(200).json(history)
+  }).catch(err => {
+      res.status(500).json({message: err.message})
+  })
+}

@@ -27,6 +27,7 @@ router.post('/history', History.create)
 router.put('/history/:id', History.update)
 router.delete('/history/:id', History.delete)
 router.get('/history/:id', History.find)
+router.get('/history/user/:id', History.user)
 
 
 router.get('/borrow', Borrow.read)
