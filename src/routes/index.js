@@ -39,6 +39,7 @@ router.get('/borrow/user/:id', Borrow.user)
 router.get('/borrow/:book/user/:user', Borrow.check)
 
 router.post('/login', Login.tryLogin)
+router.post('/veriftoken', Login.verifyToken)
 
 
 
