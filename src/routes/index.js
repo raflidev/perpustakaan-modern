@@ -1,13 +1,11 @@
 const express = require('express')
 const router = express.Router()
-const Controller = require('../utils/Controller')
 const User = require('../utils/Controller/User')
 const Book = require('../utils/Controller/Book')
 const Borrow = require('../utils/Controller/Borrow')
 const Login = require('../utils/Controller/Login')
 const History = require('../utils/Controller/History')
 
-router.get('/', Controller.index)
 router.get('/user', User.read)
 router.post('/user', User.create)
 router.put('/user/:id', User.update)

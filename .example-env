@@ -1,1 +1,2 @@
 MONGO_URL = "your mongo database"
+JWT_SECRET = ""
